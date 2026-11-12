@@ -1,0 +1,11 @@
+{
+  "connections": {
+    "legacy_pg":  { "type": "postgres",   "url": "${LEGACY_PG_URL}", "readOnly": true },
+    "old_mysql":  { "type": "mysql",      "host": "db.internal", "user": "readonly", "password": "${MYSQL_PASSWORD}", "database": "shop", "readOnly": true },
+    "erp_oracle": { "type": "oracle",     "user": "READER", "password": "${ORACLE_PASSWORD}", "connectString": "dbhost:1521/ORCLPDB1", "schema": "ERP", "readOnly": true },
+    "warehouse":  { "type": "snowflake",  "account": "myorg-myaccount", "username": "MOVEIT", "password": "${SNOWFLAKE_PASSWORD}", "warehouse": "LOAD_WH", "database": "ANALYTICS", "schema": "RAW", "role": "LOADER" },
+    "lakehouse":  { "type": "databricks", "host": "adb-1234567890123456.7.azuredatabricks.net", "httpPath": "/sql/1.0/warehouses/abcdef1234567890", "token": "${DATABRICKS_TOKEN}", "catalog": "main", "schema": "raw" },
+    "exports":    { "type": "csv",        "path": "./exports", "readOnly": true },
+    "local":      { "type": "sqlite",     "path": "./local.db" }
+  }
+}
